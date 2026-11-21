@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mercacentro · Carrito</title>
+  <meta name="description" content="Carrito de compras de Mercacentro, tienda ficticia para el laboratorio de Google Analytics 4.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230071e3'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="cabecera-in">
+      <a class="marca" href="index.html"><span class="marca-punto"></span>Mercacentro</a>
+      <nav>
+        <a href="index.html">Catálogo</a>
+        <a href="carrito.html">Carrito<span id="contador-carrito" class="contador" hidden>0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h1 class="titulo-pagina">Tu carrito</h1>
+
+    <div id="carrito-vacio" class="panel vacio" hidden>
+      <h2>Tu carrito está vacío</h2>
+      <p>Agrega productos desde el catálogo para continuar.</p>
+      <a class="btn" href="index.html">Ver catálogo</a>
+    </div>
+
+    <div id="carrito-contenido" class="dos-col" hidden>
+      <div>
+        <div class="panel" id="lineas" style="padding-top:12px;padding-bottom:12px"></div>
+        <div class="panel">
+          <h2>Cupón de descuento</h2>
+          <p class="nota" style="margin-bottom:0">Prueba con <strong>BIENVENIDA10</strong> para obtener 10 % de descuento.</p>
+          <div class="cupon">
+            <input type="text" id="input-cupon" placeholder="Código del cupón" autocomplete="off" aria-label="Código del cupón">
+            <button type="button" class="btn btn-sec" id="btn-cupon">Aplicar</button>
+          </div>
+          <p class="msg" id="msg-cupon" role="status"></p>
+          <button type="button" class="enlace-btn" id="quitar-cupon" hidden>Quitar cupón</button>
+        </div>
+      </div>
+      <aside class="resumen" aria-label="Resumen del carrito">
+        <h2>Resumen</h2>
+        <div id="resumen-carrito"></div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p><strong>Sitio académico de simulación.</strong> Mercacentro es una tienda ficticia creada para un laboratorio del Diplomado en E-commerce y Negocios Internacionales Digitales.</p>
+      <p>No procesa pagos ni guarda datos personales. Usa Google Analytics 4 para medir la navegación con fines didácticos.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/monitor.js"></script>
+  <script src="js/pagina-carrito.js"></script>
+</body>
+</html>

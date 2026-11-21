@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mercacentro · Checkout</title>
+  <meta name="description" content="Checkout simulado de Mercacentro, tienda ficticia para el laboratorio de Google Analytics 4.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230071e3'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="cabecera-in">
+      <a class="marca" href="index.html"><span class="marca-punto"></span>Mercacentro</a>
+      <nav>
+        <a href="index.html">Catálogo</a>
+        <a href="carrito.html">Carrito<span id="contador-carrito" class="contador" hidden>0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h1 class="titulo-pagina">Checkout</h1>
+
+    <div id="checkout-vacio" class="panel vacio" hidden>
+      <h2>No hay productos para pagar</h2>
+      <p>Tu carrito está vacío. Agrega productos desde el catálogo.</p>
+      <a class="btn" href="index.html">Ver catálogo</a>
+    </div>
+
+    <div id="checkout-contenido">
+      <ol class="pasos" aria-label="Pasos del checkout">
+        <li id="ind-1" class="activo"><span>1</span> Envío</li>
+        <li id="ind-2"><span>2</span> Pago simulado</li>
+      </ol>
+
+      <div class="dos-col">
+        <div>
+          <!-- PASO 1: ENVÍO -->
+          <section id="paso-1" class="panel" aria-labelledby="t-paso-1">
+            <h2 id="t-paso-1">Paso 1 · Envío</h2>
+            <p class="nota">Tienda ficticia: escribe un nombre inventado. No se guarda ni se envía a Analytics. No pedimos correo, teléfono, documento ni datos de tarjeta.</p>
+            <form id="form-envio" novalidate>
+              <label class="campo">
+                <span>Nombre (ficticio)</span>
+                <input type="text" id="nombre" name="nombre_ficticio" maxlength="60" autocomplete="off" placeholder="Ej.: Cliente de Prueba">
+              </label>
+              <label class="campo">
+                <span>País de envío</span>
+                <select id="pais" name="pais"></select>
+              </label>
+              <fieldset class="campo">
+                <legend>Servicio de envío <span id="tipo-envio" style="font-weight:400;color:var(--texto2)"></span></legend>
+                <label class="opcion">
+                  <span class="izq"><input type="radio" name="servicio" value="Estándar" checked><span>Estándar<small>Entrega económica</small></span></span>
+                  <span class="tarifa" id="tarifa-estandar"></span>
+                </label>
+                <label class="opcion">
+                  <span class="izq"><input type="radio" name="servicio" value="Express"><span>Express<small>Entrega prioritaria</small></span></span>
+                  <span class="tarifa" id="tarifa-express"></span>
+                </label>
+                <p class="nota" style="margin:4px 0 0">Envío Nacional Estándar gratis desde $150.000 en productos (con descuento aplicado).</p>
+              </fieldset>
+              <p id="error-envio" class="error" role="alert" hidden></p>
+              <div class="acciones-form">
+                <button type="submit" class="btn" id="btn-continuar">Continuar al pago</button>
+                <a href="carrito.html">Volver al carrito</a>
+              </div>
+            </form>
+          </section>
+
+          <!-- PASO 2: PAGO SIMULADO -->
+          <section id="paso-2" class="panel" aria-labelledby="t-paso-2" hidden>
+            <h2 id="t-paso-2">Paso 2 · Pago simulado</h2>
+            <p class="nota" id="pago-para"></p>
+            <fieldset class="campo">
+              <legend>Medio de pago</legend>
+              <label class="opcion"><span class="izq"><input type="radio" name="pago" value="Tarjeta de crédito" checked><span>Tarjeta de crédito<small>Simulado: no se piden datos de tarjeta</small></span></span></label>
+              <label class="opcion"><span class="izq"><input type="radio" name="pago" value="PSE"><span>PSE<small>Débito desde tu banco (simulado)</small></span></span></label>
+              <label class="opcion"><span class="izq"><input type="radio" name="pago" value="Nequi"><span>Nequi<small>Billetera digital (simulado)</small></span></span></label>
+              <label class="opcion"><span class="izq"><input type="radio" name="pago" value="PayPal"><span>PayPal<small>Pagos internacionales (simulado)</small></span></span></label>
+            </fieldset>
+            <div class="acciones-form">
+              <button type="button" class="btn" id="btn-pagar">Pagar (simulado)</button>
+              <button type="button" class="enlace-btn" id="volver-envio">← Volver a envío</button>
+            </div>
+          </section>
+        </div>
+
+        <aside class="resumen" aria-label="Resumen del pedido">
+          <h2>Resumen del pedido</h2>
+          <div id="resumen-checkout"></div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p><strong>Sitio académico de simulación.</strong> Mercacentro es una tienda ficticia creada para un laboratorio del Diplomado en E-commerce y Negocios Internacionales Digitales.</p>
+      <p>No procesa pagos ni guarda datos personales. Usa Google Analytics 4 para medir la navegación con fines didácticos.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/monitor.js"></script>
+  <script src="js/pagina-checkout.js"></script>
+</body>
+</html>

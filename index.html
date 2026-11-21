@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mercacentro · Catálogo</title>
+  <meta name="description" content="Mercacentro: tienda ficticia de despensa para el laboratorio académico de Google Analytics 4.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230071e3'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="cabecera-in">
+      <a class="marca" href="index.html"><span class="marca-punto"></span>Mercacentro</a>
+      <nav>
+        <a href="index.html">Catálogo</a>
+        <a href="carrito.html">Carrito<span id="contador-carrito" class="contador" hidden>0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="hero">
+      <h1>Tu despensa,<br><span>en un solo lugar.</span></h1>
+      <p>Granos, café, aceites y más. Enviamos desde Colombia a todo el país y al mundo.</p>
+    </section>
+
+    <section id="zona-promo" aria-label="Promoción"></section>
+
+    <section aria-labelledby="titulo-catalogo">
+      <h2 class="titulo-seccion" id="titulo-catalogo">Catálogo</h2>
+      <div id="catalogo" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p><strong>Sitio académico de simulación.</strong> Mercacentro es una tienda ficticia creada para un laboratorio del Diplomado en E-commerce y Negocios Internacionales Digitales.</p>
+      <p>No procesa pagos ni guarda datos personales. Usa Google Analytics 4 para medir la navegación con fines didácticos.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/monitor.js"></script>
+  <script src="js/pagina-index.js"></script>
+</body>
+</html>
