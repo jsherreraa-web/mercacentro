@@ -17,6 +17,6 @@
       false → modo normal, sin debug_mode.
    ========================================================================== */
 window.TIENDA_CONFIG = {
-  GA_MEASUREMENT_ID: "G-XXXXXXXXXX", // ← pega aquí tu ID de medición
+  GA_MEASUREMENT_ID: "G-EGVQPR28EF", // ← pega aquí tu ID de medición
   DEBUG_MODE: true                   // ← true = DebugView, false = normal
 };
